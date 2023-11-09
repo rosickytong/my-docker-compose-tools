@@ -1,0 +1,16 @@
+version: '3'
+services:
+  unity_cache_server:
+    image: unitytechnologies/accelerator:latest
+    container_name: unity_cache_server
+    ports:
+      - 80:80
+      - 443:443
+      - 10080:10080
+    environment:
+      - PASSWORD=admin
+      - USER=admin
+      - UNITY_ACCELERATOR_PERSIST=/home/unity_cache_server
+      - UNITY_ACCELERATOR_DEBUG=true
+    volumes:
+      - /home/unity_cache_server/agent:/home/unity_cache_server
